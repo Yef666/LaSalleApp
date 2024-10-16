@@ -54,6 +54,8 @@ import com.example.a512lasalleapp.ui.utils.Screens
 import com.example.a512lasalleapp.ui.utils.communities
 import com.example.a512lasalleapp.ui.utils.newsList
 
+
+
 @Composable
 fun HomeScreen(innerPadding: PaddingValues, navController: NavController) {
 
@@ -149,10 +151,20 @@ fun HomeScreen(innerPadding: PaddingValues, navController: NavController) {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
-                // Widget
-                Widget(icon = Icons.Default.DateRange, text = "Sin eventos")
-                Widget(icon = Task, text = "2 tareas")
-                Widget(icon = Cash, text = stringResource(id = R.string.cash_text))
+
+                // Widget de Eventos
+                Widget(icon = Icons.Default.DateRange, text = "Sin eventos") {
+                    // Acción al hacer clic (puede ser navegación u otro comportamiento)
+                    navController.navigate("events")
+                }
+                // Widget de Tareas
+                Widget(icon = Task, text = "2 tareas") {
+                    navController.navigate("tasks")
+                }
+                // Widget de Pagos
+                Widget(icon = Cash, text = "Pagos") {
+                    navController.navigate("payments")
+                }
             }
         }
 
@@ -224,3 +236,4 @@ fun HomeScreenPreview() {
         HomeScreen(innerPadding = PaddingValues(0.dp), navController = navController)
     }
 }
+

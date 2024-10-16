@@ -1,11 +1,10 @@
 package com.example.a512lasalleapp.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -19,17 +18,17 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.a512lasalleapp.ui.theme.GrayDark
 import com.example.a512lasalleapp.ui.theme.GrayLight
 import com.example.a512lasalleapp.ui.theme._512LaSalleAppTheme
 
 @Composable
-fun Widget(icon : ImageVector, text: String){
+fun Widget(icon: ImageVector, text: String, onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .size(90.dp)
             .clip(RoundedCornerShape(16.dp))
-            .background(GrayLight),
+            .background(GrayLight)
+            .clickable { onClick() }, // Llama la función onClick aquí
         contentAlignment = Alignment.Center
     ) {
         Column(
@@ -42,20 +41,18 @@ fun Widget(icon : ImageVector, text: String){
                 tint = MaterialTheme.colorScheme.primary
             )
             Text(
-                text= text,
+                text = text,
                 color = MaterialTheme.colorScheme.primary,
-                style = MaterialTheme.typography.bodySmall,
-                fontWeight = MaterialTheme.typography.bodySmall.fontWeight
+                style = MaterialTheme.typography.bodySmall
             )
         }
-
     }
 }
 
 @Preview
 @Composable
-fun WidgetPreview(){
+fun WidgetPreview() {
     _512LaSalleAppTheme {
-        Widget(icon = Icons.Default.Home, text = "Inicio")
+        Widget(icon = Icons.Default.Home, text = "Inicio", onClick = {})
     }
 }
