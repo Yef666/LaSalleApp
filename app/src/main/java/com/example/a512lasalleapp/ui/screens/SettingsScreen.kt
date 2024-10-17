@@ -85,7 +85,7 @@ fun SettingsScreen(innerPadding: PaddingValues, navController: NavController) {
 
         // Imagen circular del alumno
         Image(
-            painter = rememberAsyncImagePainter("https://www.example.com/imagen_alumno.jpg"), // Reemplaza con una URL válida
+            painter = rememberAsyncImagePainter("https://i.pinimg.com/280x280_RS/05/90/41/0590412eb289af7a0636b9c336cba325.jpg"),
             contentDescription = "Foto del alumno",
             modifier = Modifier
                 .size(120.dp)
@@ -94,7 +94,7 @@ fun SettingsScreen(innerPadding: PaddingValues, navController: NavController) {
             contentScale = ContentScale.Crop
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.dp)) // Cambiar tamaño del espacio
 
         // Información del alumno
         Column(
@@ -130,6 +130,7 @@ fun SettingsScreen(innerPadding: PaddingValues, navController: NavController) {
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
+
         ) {
             OptionItem("Cambiar contraseña", onClick = {
                 navController.navigate("change_password")
